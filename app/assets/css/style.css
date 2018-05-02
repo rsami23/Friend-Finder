@@ -1,0 +1,42 @@
+
+/* Home Page*/
+
+.root {
+    background-image: url("../images/coffee.jpeg");
+    background-size: cover;
+    width: auto;
+    height: 850px;
+    background-attachment: fixed;
+}
+
+#main-title {
+    font-family: 'Pacifico', cursive; 
+}
+
+#sub-text {
+    font-family: 'Cuprum', sans-serif;
+}
+
+
+/* Survey Page */
+
+.survey {
+    background-image: url("../images/coffee.jpeg");
+    background-size: cover;
+    width: auto;
+    height: 850px;
+    box-shadow: 0 8px 6px -6px #777777;
+    font-family: 'Pacifico', cursive; 
+}
+
+.quiz-head {
+    font-family: 'Pacifico', cursive; 
+    margin-bottom: 20px;
+}
+
+p {
+    margin-top: 10px;
+}
+
+
+

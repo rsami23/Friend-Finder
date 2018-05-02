@@ -1,0 +1,25 @@
+{
+  "name": "datingapp",
+  "version": "1.0.0",
+  "description": "App that users to each other",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rsami23/Friend-Finder.git"
+  },
+  "author": "Roshnee A",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rsami23/Friend-Finder/issues"
+  },
+  "homepage": "https://github.com/rsami23/Friend-Finder#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "path": "^0.12.7"
+  }
+}
