@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--Icon-->
-    <link rel="shortcut icon" href="../assets/images/favicon .ico"/>
+    <link rel="shortcut icon" href="../public/assets/images/favicon .ico"/>
     <title>Friend Finder</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--Bootstrap CDN-->
@@ -14,15 +14,17 @@
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Cuprum|Pacifico" rel="stylesheet">
     <!--Custom StyleSheet-->
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../public/assets/css/style.css">
 </head>
 
 <body>
 
     <div class="jumbotron root text-center">
-        <h1 class= "display-1" id ="main-title">Friend Finder <span class="glyphicon glyphicon-heart"></span></h1>
+        <h1 class= "display-1" id ="main-title">Friend Finder</h1>
         <h2 id= "sub-text">Find the one for you!</h2>
-        <button type="button" id= "journey-btn" href="survey.html" class="btn btn-lg btn-outline-dark mt-3">Start my Journey</button>
+        <a href="survey.html">
+            <button id= "journey-btn" class="btn btn-lg btn-outline-dark mt-3" type="button">Start my Journey</button>
+        </a>
     </div>
 
     <!--Other CDNS-->
