@@ -10,28 +10,35 @@ module.exports = function(app){
     })
 
     app.post("/api/friends", function(req, res) {
-        var newUser = req.body;
-        var userResponses = newUser.scores;
+        var newUser = req.body.scores;
+        var scoresArr = [];
+        var bestMatch = 0;
 
-        var matchName = "";
-        var matchPhoto = "";
-        var totalDifference = 100000;
-
+        // RUN THROUGH ALL CURRENT FRIENDS 
         for (var i = 0; i < friends.length; i++) {
-            var difference = 0;
-            for (var j = 0; j < userResponses.length; i++) {
-                diff += Math.abs(friends[i].scores[j] - userResponses[j]);
-            }
+        var diffScores = 0;
 
-            if (difference < totalDifference) {
-                totalDifference = difference;
-                matchName = friends[i].name;
-                matchPhoto = friends[i].photo;
-            }
+        // RUN THROUGH NEW USER INPUTED SCORES
+        for (var j = 0; j < newUser.length; j++) {
+            diffScores += (Math.abs(parseInt(friends.scores[i] - parseInt(newUser.scores[j]))));
         }
 
-        friends.push(newUser);
-        res.json({status: "OK", matchName: matchName, matchPhoto: matchPhoto});
+        // PUSH RESULTS INTO SCORES ARRAY
+        scoresArr.push(diffScores);
+    }
+
+        // FIND THE BEST MATCH
+        for (var i = 0; i < scoresArr.length; i++) {
+            if (scoresArr[i] <= scoresArr[bestMatch]){
+                bestMatch = i;
+            }
+        }
+        
+        // RETURN MATCH
+        var newMatch = friends[bestMatch];
+        res.json(newMatch);
+
+        friends.push(req, body);     
     });   
 };
 

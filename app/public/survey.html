@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--Icon-->
-    <link rel="shortcut icon" href="../public/assets/images/favicon .ico" />
+    <link rel="shortcut icon" href="../assets/images/favicon .ico" />
     <title>Compatibility Survey</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--Bootstrap CDN-->
@@ -16,7 +16,7 @@
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Cuprum|Pacifico" rel="stylesheet">
     <!--Custom StyleSheet-->
-    <link rel="stylesheet" href="../public/assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body class="bg">
@@ -170,12 +170,13 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="userMatch">Friend Finder Match</h5> 
+                    <h5 class="modal-title" id="modal">Friend Finder Match</h5> 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
+                    <h1 id="userMatch"></h1>
                     <img id="userMatchImage" width="200" src=""> 
                 </div>
             </div>
@@ -209,12 +210,17 @@
             // PUSH NEWUSER TO JSON OBJECT
             console.log(newUser);
 
-            $.post("/app/data/friends", newUser)
-                .then(function(data) {
-                    // ENTER MODAL
-                    $("#userMatch").html(data.matchName);
-		    	    $("#userMatchImage").attr("src", data.matchPhoto);
-                });
+            // CANT GET MY MATCH TO POP UP IN THE MODAL
+            $.get("/api/friends", newUser, function(data){
+                $("#userMatch").html(data.userName);
+                console.log(data.userName)
+		    	$("#userMatchImage").attr("src", data.userPhoto);
+            });
+                // .then(function(data) {
+                //     // ENTER MODAL
+                //     $("#userMatch").html(data.matchName);
+		    	//     $("#userMatchImage").attr("src", data.matchPhoto);
+                // });
 
             // CLEAR INPUT FIELDS
             $("#user-name").val(""),
